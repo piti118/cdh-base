@@ -26,7 +26,7 @@ RUN echo "===> clean up..."  && \
 ##install CDH
 
 #add and prioritize cloudera repo
-COPY cloudera.list /etc/apt/sources.list.d/cloudera.list
+COPY cloudera*.list /etc/apt/sources.list.d/
 COPY cloudera.pref /etc/apt/preferences.d/cloudera.pref
 
 #add archive key

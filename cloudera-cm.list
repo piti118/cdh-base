@@ -1,0 +1,3 @@
+# Packages for Cloudera's Distribution for Hadoop, Version 4, on Debian 7.0 x86_64
+deb http://archive.cloudera.com/cm5/debian/jessie/amd64/cm jessie-cm5 contrib
+deb-src http://archive.cloudera.com/cm5/debian/jessie/amd64/cm jessie-cm5 contrib
