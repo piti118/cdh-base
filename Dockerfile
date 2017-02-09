@@ -22,11 +22,10 @@ RUN echo "===> clean up..."  && \
     apt-get clean  && \
     rm -rf /var/lib/apt/lists/*
 
-
 ##install CDH
 
 #add and prioritize cloudera repo
-COPY cloudera*.list /etc/apt/sources.list.d/
+COPY cloudera.list /etc/apt/sources.list.d/cloudera.list
 COPY cloudera.pref /etc/apt/preferences.d/cloudera.pref
 
 #add archive key
@@ -34,5 +33,14 @@ COPY archive.key /tmp/archive.key
 RUN apt-key add /tmp/archive.key
 
 RUN apt-get update
+
+#Cloudera manager and client
+RUN apt-get install -y cloudera-manager-daemons cloudera-manager-server cloudera-manager-agent
+
+#TODO: CDH5
+RUN apt-get install -y avro-tools crunch flume-ng hadoop-hdfs-fuse hadoop-hdfs-nfs3 hadoop-httpfs hadoop-kms hbase-solr hive-hbase hive-webhcat hue-beeswax hue-hbase hue-impala hue-pig hue-plugins hue-rdbms hue-search hue-spark hue-sqoop hue-zookeeper impala impala-shell kite llama mahout oozie pig pig-udf-datafu search sentry solr-mapreduce spark-core spark-master spark-worker spark-history-server spark-python sqoop sqoop2 whirr
+
+#JDBC DRIVER
+RUN apt-get install libmysql-java
 
 CMD tail -f /dev/null
