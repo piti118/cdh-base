@@ -26,6 +26,7 @@ RUN echo "===> clean up..."  && \
 
 #add and prioritize cloudera repo
 COPY cloudera.list /etc/apt/sources.list.d/cloudera.list
+COPY cloudera-cm.list /etc/apt/sources.list.d/cloudera-cm.list
 COPY cloudera.pref /etc/apt/preferences.d/cloudera.pref
 
 #add archive key
